@@ -1,0 +1,9 @@
+{
+  "name": "liff-rich-menu-handson",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@line/bot-sdk": "^7.3.0"
+  }
+}
