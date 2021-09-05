@@ -9,9 +9,9 @@ from linebot.models import (
     RichMenuBounds,
     URIAction
 )
-from linebot.models.actions import (
-    RichMenuSwitchAction
-)
+from linebot.models.actions import RichMenuSwitchAction
+from linebot.models.rich_menu import RichMenuAlias
+
 import rich_menu_object
 
 line_bot_api = LineBotApi('LINE_CHANNEL_TOKEN')
@@ -61,3 +61,35 @@ set_rich_menu_image(rich_menu_a_id, '../public/richmenu-a.png')
 # object b の作成
 rich_menu_b_id = create_rich_menus(rich_menu_object.rich_menu_object_b())
 set_rich_menu_image(rich_menu_b_id, '../public/richmenu-b.png')
+
+# === 3. リッチメニューの確認 ===
+def get_rich_menu(rich_menu_id):
+    return line_bot_api.get_rich_menu(rich_menu_id)
+
+print(get_rich_menu(rich_menu_a_id))
+
+# === 4. リッチメニューの削除 ===
+def delete_rich_menu(rich_menu_id):
+    return line_bot_api.delete_rich_menu(rich_menu_id)
+
+# print(delete_rich_menu(rich_menu_a_id))
+# print(delete_rich_menu(rich_menu_b_id))
+
+# === 5. リッチメニューの alias 登録/削除 ===
+def set_rich_menus_alias(rich_menu_id, rich_menus_alias_id):
+    alias = RichMenuAlias(
+        rich_menu_alias_id=rich_menus_alias_id,
+        rich_menu_id=rich_menu_id
+    )
+    line_bot_api.create_rich_menu_alias(alias)
+
+def unset_rich_menus_alias(rich_menus_alias_id):
+    return line_bot_api.delete_rich_menu_alias(rich_menus_alias_id)
+
+set_rich_menus_alias(rich_menu_a_id, 'richmenu-alias-a')
+set_rich_menus_alias(rich_menu_b_id, 'richmenu-alias-b')
+
+# === 全てのリッチメニューの削除 ===
+rich_menu_list = fetch_rich_menus()
+for rich_menu in rich_menu_list:
+    delete_rich_menu(rich_menu.rich_menu_id)
