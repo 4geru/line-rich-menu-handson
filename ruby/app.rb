@@ -30,14 +30,14 @@ end
 require './rich_menu_object'
 # # rich menu a を作る
 create_rich_menu_response = create_rich_menu(rich_menu_object_a)
-rich_menu = JSON.parse(create_rich_menu_response.body)
-p rich_menu
+rich_a_menu = JSON.parse(create_rich_menu_response.body)
+p rich_a_menu
 # # => => {"richMenuId"=>"richmenu-xxx"}
-# set_rich_menu_image(rich_menu['richMenuId'], '../public/richmenu-a.png')
+set_rich_menu_image(rich_a_menu['richMenuId'], '../public/richmenu-a.png')
 # # rich menu b を作る
-# create_rich_menu_response = create_rich_menu(rich_menu_object_b)
-# rich_menu = JSON.parse(create_rich_menu_response.body)
-# set_rich_menu_image(rich_menu['richMenuId'], '../public/richmenu-b.png')
+create_rich_menu_response = create_rich_menu(rich_menu_object_b)
+rich_b_menu = JSON.parse(create_rich_menu_response.body)
+set_rich_menu_image(rich_b_menu['richMenuId'], '../public/richmenu-b.png')
 # p rich_menu
 # # => => {"richMenuId"=>"richmenu-xxx"}
 
@@ -56,3 +56,8 @@ def delete_rich_menu(rich_menu_id)
 end
 
 # p delete_rich_menu(response['richMenuId'])
+def set_default_rich_menu(rich_menu_id)
+  client.set_default_rich_menu(rich_menu_id)
+end
+
+set_default_rich_menu(rich_a_menu['richMenuId'])
