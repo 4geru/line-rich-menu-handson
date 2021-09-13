@@ -1,0 +1,11 @@
+{
+  "name": "line-rich-menu-handson",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:4geru/line-rich-menu-handson.git",
+  "author": "4geru <westhouse51@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "zenn-cli": "^0.1.95"
+  }
+}
