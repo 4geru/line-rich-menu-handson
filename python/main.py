@@ -89,15 +89,16 @@ def unset_rich_menus_alias(rich_menus_alias_id):
 set_rich_menus_alias(rich_menu_a_id, 'richmenu-alias-a')
 set_rich_menus_alias(rich_menu_b_id, 'richmenu-alias-b')
 
+# === 6. リッチメニューのデフォルトの設定 ===
 def set_default_rich_menu(rich_menu_id):
     line_bot_api.set_default_rich_menu(rich_menu_id)
 
 set_default_rich_menu(rich_menu_a_id)
 # === 全てのリッチメニューの削除 ===
-# rich_menu_list = fetch_rich_menus()
-# for rich_menu in rich_menu_list:
-#     delete_rich_menu(rich_menu.rich_menu_id)
+rich_menu_list = fetch_rich_menus()
+for rich_menu in rich_menu_list:
+    delete_rich_menu(rich_menu.rich_menu_id)
 
-# print(line_bot_api.get_rich_menu_alias_list().aliases)
-# for rich_menu_alias in line_bot_api.get_rich_menu_alias_list().aliases:
-#     print(unset_rich_menus_alias(rich_menu_alias.rich_menu_alias_id))
+print(line_bot_api.get_rich_menu_alias_list().aliases)
+for rich_menu_alias in line_bot_api.get_rich_menu_alias_list().aliases:
+    print(unset_rich_menus_alias(rich_menu_alias.rich_menu_alias_id))
