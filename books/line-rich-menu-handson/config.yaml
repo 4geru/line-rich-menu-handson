@@ -1,9 +1,13 @@
-title: ""
+title: "LIFFもいいけどリッチメニューを触ってみよう！"
 summary: ""
 topics: []
 published: false
-price: 0 # 有料の場合200〜5000
+price: 0
 # 本に含めるチャプターを順番に並べましょう
 chapters:
-  - example1
-  - example2
+  - why-rich-menu
+  - how-to-use-rich-menu
+  - setup
+  - ruby
+  - node
+  - python
