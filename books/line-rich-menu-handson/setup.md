@@ -18,3 +18,9 @@ title: "準備"
 ## `LINE_CHANNEL_SECRET`, `LINE_CHANNEL_TOKEN` をコピーする
 
 ## 友達追加
+
+# git clone
+
+```shell
+git clone git@github.com:4geru/line-rich-menu-handson.git
+```
