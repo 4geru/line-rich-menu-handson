@@ -12,17 +12,20 @@ const config = {
 client = new line.Client(config);
 
 const reset = async() => {
-  const client = new line.Client(config);
-
+  // 全 alias を選択する
   client.getRichMenuAliasList().then((res) => {
-      for(var richMenu of res.aliases) {
-          client.deleteRichMenuAlias(richMenu.richMenuAliasId)
-      }
+    for(var richMenu of res.aliases) {
+      // alias を削除する
+      client.deleteRichMenuAlias(richMenu.richMenuAliasId)
+    }
   })
+
+  // 全リッチメニューを選択する
   client.getRichMenuList().then((res) => {
-      for(var richMenu of res) {
-          client.deleteRichMenu(richMenu.richMenuId)
-      }
+    for(var richMenu of res) {
+      // リッチメニューを削除する
+      client.deleteRichMenu(richMenu.richMenuId)
+    }
   })
 }
 
@@ -32,6 +35,7 @@ const createRichMenu = async (richMenuObject) => {
     richMenuObject
   )
 }
+
 // リッチメニューに画像をアップロードして添付する
 const setRichMenuImage = async (richMenuId, path) => {
   const filepath = join(__dirname, path);
@@ -45,6 +49,7 @@ const setRichMenuAlias = async (richMenuId, richMenuAliasId) => {
   return await client.createRichMenuAlias(richMenuId, richMenuAliasId)
 }
 
+// デフォルトのリッチメニューを設定する
 const setDefaultRichMenu = async (richMenuId) => {
   return await client.setDefaultRichMenu(richMenuId)
 }

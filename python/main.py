@@ -16,24 +16,26 @@ import rich_menu_object
 
 line_bot_api = LineBotApi('LINE_CHANNEL_TOKEN')
 
-# === 1. 登録されているリッチメニューを確認する ===
-def fetch_rich_menus():
-    return line_bot_api.get_rich_menu_list()
+def reset():
+    # 全 alias を選択する
+    rich_menu_list = line_bot_api.get_rich_menu_list()
+    for rich_menu in rich_menu_list:
+        # alias を削除する
+        line_bot_api.delete_rich_menu(rich_menu_id)
 
-# 全ての rich menu を確認する
-rich_menu_list = fetch_rich_menus()
-for rich_menu in rich_menu_list:
-    # rich_menu_id を確認する
-    # TODO: rich_menu の要素を確認してみましょう！
-    print(rich_menu.rich_menu_id)
+    # 全リッチメニューを選択する
+    for rich_menu_alias in line_bot_api.get_rich_menu_alias_list().aliases:
+        # リッチメニューを削除する
+        line_bot_api.delete_rich_menu_alias(rich_menus_alias_id)
 
-# === 2. リッチメニューの作成 ===
+# アクションの登録
 def create_action(action):
     if action['type'] == 'uri':
         return URIAction(type=action['type'], uri=action.get('uri'))
     else:
         return RichMenuSwitchAction(type=action['type'], rich_menu_alias_id=action.get('richMenuAliasId'), data=action.get('data'))
 
+# リッチメニューを作成する
 def create_rich_menus(rich_menu_object):
     areas = [
         RichMenuArea(
@@ -51,31 +53,12 @@ def create_rich_menus(rich_menu_object):
     )
     return line_bot_api.create_rich_menu(rich_menu=rich_menu_to_create)
 
+# リッチメニューに画像をアップロードする
 def set_rich_menu_image(rich_menu_id, rich_menu_image_path):
     with open(rich_menu_image_path, 'rb') as f:
         line_bot_api.set_rich_menu_image(rich_menu_id, 'image/png', f)
 
-# object a の作成
-rich_menu_a_id = create_rich_menus(rich_menu_object.rich_menu_object_a())
-set_rich_menu_image(rich_menu_a_id, '../public/richmenu-a.png')
-# object b の作成
-rich_menu_b_id = create_rich_menus(rich_menu_object.rich_menu_object_b())
-set_rich_menu_image(rich_menu_b_id, '../public/richmenu-b.png')
-
-# === 3. リッチメニューの確認 ===
-def get_rich_menu(rich_menu_id):
-    return line_bot_api.get_rich_menu(rich_menu_id)
-
-print(get_rich_menu(rich_menu_a_id))
-
-# === 4. リッチメニューの削除 ===
-def delete_rich_menu(rich_menu_id):
-    return line_bot_api.delete_rich_menu(rich_menu_id)
-
-# print(delete_rich_menu(rich_menu_a_id))
-# print(delete_rich_menu(rich_menu_b_id))
-
-# === 5. リッチメニューの alias 登録/削除 ===
+# リッチメニューの alias の登録
 def set_rich_menus_alias(rich_menu_id, rich_menus_alias_id):
     alias = RichMenuAlias(
         rich_menu_alias_id=rich_menus_alias_id,
@@ -83,22 +66,26 @@ def set_rich_menus_alias(rich_menu_id, rich_menus_alias_id):
     )
     line_bot_api.create_rich_menu_alias(alias)
 
-def unset_rich_menus_alias(rich_menus_alias_id):
-    return line_bot_api.delete_rich_menu_alias(rich_menus_alias_id)
-
-set_rich_menus_alias(rich_menu_a_id, 'richmenu-alias-a')
-set_rich_menus_alias(rich_menu_b_id, 'richmenu-alias-b')
-
-# === 6. リッチメニューのデフォルトの設定 ===
+# デフォルトのリッチメニューを設定する
 def set_default_rich_menu(rich_menu_id):
     line_bot_api.set_default_rich_menu(rich_menu_id)
 
-set_default_rich_menu(rich_menu_a_id)
-# === 全てのリッチメニューの削除 ===
-rich_menu_list = fetch_rich_menus()
-for rich_menu in rich_menu_list:
-    delete_rich_menu(rich_menu.rich_menu_id)
+def main():
+    # 2. リッチメニューA（richmenu-a）を作成する
+    rich_menu_a_id = create_rich_menus(rich_menu_object.rich_menu_object_a())
+    # 3. リッチメニューAに画像をアップロードする
+    set_rich_menu_image(rich_menu_a_id, '../public/richmenu-a.png')
+    # 4. リッチメニューB（richmenu-b）を作成する
+    rich_menu_b_id = create_rich_menus(rich_menu_object.rich_menu_object_b())
+    # 5. リッチメニューBに画像をアップロードする
+    set_rich_menu_image(rich_menu_b_id, '../public/richmenu-b.png')
+    # 6. リッチメニューAをデフォルトのリッチメニューにする
+    set_default_rich_menu(rich_menu_a_id)
+    # 7. リッチメニューエイリアスAを作成する
+    set_rich_menus_alias(rich_menu_a_id, 'richmenu-alias-a')
+    # 8. リッチメニューエイリアスBを作成する
+    set_rich_menus_alias(rich_menu_b_id, 'richmenu-alias-b')
+    print('success')
 
-print(line_bot_api.get_rich_menu_alias_list().aliases)
-for rich_menu_alias in line_bot_api.get_rich_menu_alias_list().aliases:
-    print(unset_rich_menus_alias(rich_menu_alias.rich_menu_alias_id))
+reset()
+main()
