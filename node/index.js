@@ -11,19 +11,28 @@ const config = {
 
 client = new line.Client(config);
 
-// === 1. 登録されているリッチメニューを確認する ===
-// 全ての rich menu を確認する
-const fetchRichMenu = async () => {
-  return await client.getRichMenuList()
+const reset = async() => {
+  const client = new line.Client(config);
+
+  client.getRichMenuAliasList().then((res) => {
+      for(var richMenu of res.aliases) {
+          client.deleteRichMenuAlias(richMenu.richMenuAliasId)
+      }
+  })
+  client.getRichMenuList().then((res) => {
+      for(var richMenu of res) {
+          client.deleteRichMenu(richMenu.richMenuId)
+      }
+  })
 }
 
-// === 2. リッチメニューの作成 ===
+// リッチメニューを作成する
 const createRichMenu = async (richMenuObject) => {
   return await client.createRichMenu(
     richMenuObject
   )
 }
-
+// リッチメニューに画像をアップロードして添付する
 const setRichMenuImage = async (richMenuId, path) => {
   const filepath = join(__dirname, path);
   const buffer = readFileSync(filepath);
@@ -31,23 +40,9 @@ const setRichMenuImage = async (richMenuId, path) => {
   const res = await client.setRichMenuImage(richMenuId, buffer);
 }
 
-// === 3. リッチメニューの確認 ===
-const getRichMenu = async (richMenuId) => {
-  return await client.getRichMenu(richMenuId)
-}
-
-// === 4. リッチメニューの削除 ===
-const deleteRichMenu = async (richMenuId) => {
-  return await client.deleteRichMenu(richMenuId)
-}
-
-// === 5. リッチメニューの alias 登録/削除 ===
+// デフォルトのリッチメニューを設定する
 const setRichMenuAlias = async (richMenuId, richMenuAliasId) => {
   return await client.createRichMenuAlias(richMenuId, richMenuAliasId)
-}
-
-const unRichMenuAlias = async (richMenuAliasId) => {
-  return await client.deleteRichMenuAlias(richMenuAliasId)
 }
 
 const setDefaultRichMenu = async (richMenuId) => {
@@ -55,42 +50,22 @@ const setDefaultRichMenu = async (richMenuId) => {
 }
 
 const main = async () => {
-  // === 1. 登録されているリッチメニューを確認する ===
-  const response = await fetchRichMenu()
-  // === 2. リッチメニューの作成 ===
+  // 2. リッチメニューA（richmenu-a）を作成する
   const richMenuAId = await createRichMenu(richMenuObjectA())
-  const richMenuBId = await createRichMenu(richMenuObjectB())
-  console.log({richMenuAId, richMenuBId})
+  // 3. リッチメニューAに画像をアップロードする
   await setRichMenuImage(richMenuAId, '../public/richmenu-a.png')
+  // 4. リッチメニューB（richmenu-b）を作成する
+  const richMenuBId = await createRichMenu(richMenuObjectB())
+  // 5. リッチメニューBに画像をアップロードする
   await setRichMenuImage(richMenuBId, '../public/richmenu-b.png')
-  // === 3. リッチメニューの確認 ===
-  // console.log(await getRichMenu(richMenuAId))
-  // console.log(await getRichMenu(richMenuBId))
-  // === 4. リッチメニューの削除 ===
-  // await deleteRichMenu(richMenuAId)
-  // === 5. リッチメニューの alias 登録/削除 ===
-  try {
-    await setRichMenuAlias(richMenuAId, 'richmenu-alias-a')
-  } catch(e) {
-    console.log(e)
-    console.log('error richmenu-alias-a')
-  };
-  try {
-    await setRichMenuAlias(richMenuBId, 'richmenu-alias-b')
-  } catch {
-    console.log('error richmenu-alias-b')
-  };
-  // === 6. リッチメニューのデフォルトの設定 ===
+  // 6. リッチメニューAをデフォルトのリッチメニューにする
   await setDefaultRichMenu(richMenuBId)
+  // 7. リッチメニューエイリアスAを作成する
+  await setRichMenuAlias(richMenuAId, 'richmenu-alias-a')
+  // 8. リッチメニューエイリアスBを作成する
+  await setRichMenuAlias(richMenuBId, 'richmenu-alias-b')
+  console.log('success')
 }
 
-const deleteAll = async () => {
-  unRichMenuAlias('richmenu-alias-a')
-  unRichMenuAlias('richmenu-alias-b')
-  const response = await fetchRichMenu()
-  for(var res of response) {
-    deleteRichMenu(res.richMenuId)
-  }
-}
-deleteAll()
+reset()
 main()
