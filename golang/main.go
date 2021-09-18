@@ -54,8 +54,8 @@ func reset(bot *linebot.Client) {
 
 func main() {
 	bot, err := linebot.New(
-		"LINE_CHANNEL_SECRET",
-		"CHANNEL_CHANNEL_TOKEN",
+		"LINE_CHANNEL_SECRET",   // 上書きする
+		"CHANNEL_CHANNEL_TOKEN", // 上書きする
 	)
 	if err != nil {
 		log.Fatal(err)

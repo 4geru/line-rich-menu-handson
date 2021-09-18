@@ -14,7 +14,7 @@ from linebot.models.rich_menu import RichMenuAlias
 
 import rich_menu_object
 
-line_bot_api = LineBotApi('LINE_CHANNEL_TOKEN')
+line_bot_api = LineBotApi('LINE_CHANNEL_TOKEN') # 上書きする
 
 def reset():
     # 全 alias を選択する
