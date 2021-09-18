@@ -21,12 +21,12 @@ def reset():
     rich_menu_list = line_bot_api.get_rich_menu_list()
     for rich_menu in rich_menu_list:
         # alias を削除する
-        line_bot_api.delete_rich_menu(rich_menu_id)
+        line_bot_api.delete_rich_menu(rich_menu.rich_menu_id)
 
     # 全リッチメニューを選択する
     for rich_menu_alias in line_bot_api.get_rich_menu_alias_list().aliases:
         # リッチメニューを削除する
-        line_bot_api.delete_rich_menu_alias(rich_menus_alias_id)
+        line_bot_api.delete_rich_menu_alias(rich_menu_alias.rich_menu_alias_id)
 
 # アクションの登録
 def create_action(action):
