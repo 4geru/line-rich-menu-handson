@@ -35,7 +35,8 @@ def create_action(action):
     else:
         return RichMenuSwitchAction(type=action['type'], rich_menu_alias_id=action.get('richMenuAliasId'), data=action.get('data'))
 
-# リッチメニューを作成する
+# rich_menu_object でリッチメニューの構成を指定する
+# リッチメニューオブジェクト: https://developers.line.biz/ja/reference/messaging-api/#rich-menu-object
 def create_rich_menus(rich_menu_object):
     areas = [
         RichMenuArea(
@@ -58,6 +59,10 @@ def set_rich_menu_image(rich_menu_id, rich_menu_image_path):
     with open(rich_menu_image_path, 'rb') as f:
         line_bot_api.set_rich_menu_image(rich_menu_id, 'image/png', f)
 
+# デフォルトのリッチメニューを設定する
+def set_default_rich_menu(rich_menu_id):
+    line_bot_api.set_default_rich_menu(rich_menu_id)
+
 # リッチメニューの alias の登録
 def set_rich_menus_alias(rich_menu_id, rich_menus_alias_id):
     alias = RichMenuAlias(
@@ -65,10 +70,6 @@ def set_rich_menus_alias(rich_menu_id, rich_menus_alias_id):
         rich_menu_id=rich_menu_id
     )
     line_bot_api.create_rich_menu_alias(alias)
-
-# デフォルトのリッチメニューを設定する
-def set_default_rich_menu(rich_menu_id):
-    line_bot_api.set_default_rich_menu(rich_menu_id)
 
 def main():
     # 2. リッチメニューA（richmenu-a）を作成する

@@ -6,6 +6,8 @@ import (
 	"github.com/line/line-bot-sdk-go/v7/linebot"
 )
 
+// rich_menu_object でリッチメニューの構成を指定する
+// リッチメニューオブジェクト: https://developers.line.biz/ja/reference/messaging-api/#rich-menu-object
 func createRichMenu(bot *linebot.Client, richMenu linebot.RichMenu) string {
 	res, err := bot.CreateRichMenu(richMenu).Do()
 	if err != nil {
@@ -14,18 +16,21 @@ func createRichMenu(bot *linebot.Client, richMenu linebot.RichMenu) string {
 	return res.RichMenuID
 }
 
+// リッチメニューに画像をアップロードして添付する
 func setRichMenuImage(bot *linebot.Client, richMenuId string, filePath string) {
 	if _, err := bot.UploadRichMenuImage(richMenuId, filePath).Do(); err != nil {
 		log.Fatal(err)
 	}
 }
 
+// デフォルトのリッチメニューを設定する
 func setDefaultRichMenu(bot *linebot.Client, richMenuId string) {
 	if _, err := bot.SetDefaultRichMenu(richMenuId).Do(); err != nil {
 		log.Fatal(err)
 	}
 }
 
+// リッチメニューの alias の登録
 func setRichMenuAlias(bot *linebot.Client, richMenuId string, richMenuAliasID string) {
 	if _, err := bot.CreateRichMenuAlias(richMenuAliasID, richMenuId).Do(); err != nil {
 		log.Fatal(err)

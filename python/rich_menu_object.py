@@ -17,7 +17,7 @@ def rich_menu_object_a():
         },
         "action": {
           "type": "uri",
-          "uri": "https://developers.line.biz/"
+          "uri": "https://linedevelopercommunity.connpass.com/event/223972/"
         }
       },
       {
@@ -68,7 +68,7 @@ def rich_menu_object_b():
         },
         "action": {
           "type": "uri",
-          "uri": "https://developers.line.biz/"
+          "uri": "https://linedevelopercommunity.connpass.com/event/223972/"
         }
       }
     ]

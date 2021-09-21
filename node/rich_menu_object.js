@@ -16,7 +16,7 @@ const richMenuObjectA = () => ({
         },
         action: {
           type: "uri",
-          uri: "https://developers.line.biz/"
+          uri: "https://linedevelopercommunity.connpass.com/event/223972/"
         }
       },
       {
@@ -66,7 +66,7 @@ const richMenuObjectB = () => ({
         },
         action: {
           type: "uri",
-          uri: "https://developers.line.biz/"
+          uri: "https://linedevelopercommunity.connpass.com/event/223972/"
         }
       }
     ]

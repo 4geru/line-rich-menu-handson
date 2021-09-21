@@ -13,7 +13,7 @@ func richMenuObjectA() linebot.RichMenu {
 				Bounds: linebot.RichMenuBounds{X: 0, Y: 0, Width: 1250, Height: 1686},
 				Action: linebot.RichMenuAction{
 					Type: linebot.RichMenuActionTypeURI,
-					URI:  "https://developers.line.me/",
+					URI:  "https://linedevelopercommunity.connpass.com/event/223972/",
 					Text: "click me",
 				},
 			},
@@ -48,7 +48,7 @@ func richMenuObjectB() linebot.RichMenu {
 				Bounds: linebot.RichMenuBounds{X: 1251, Y: 0, Width: 1250, Height: 1686},
 				Action: linebot.RichMenuAction{
 					Type: linebot.RichMenuActionTypeURI,
-					URI:  "https://developers.line.me/",
+					URI:  "https://linedevelopercommunity.connpass.com/event/223972/",
 					Text: "click me",
 				},
 			},

@@ -29,7 +29,8 @@ const reset = async() => {
   })
 }
 
-// リッチメニューを作成する
+// rich_menu_object でリッチメニューの構成を指定する
+// リッチメニューオブジェクト: https://developers.line.biz/ja/reference/messaging-api/#rich-menu-object
 const createRichMenu = async (richMenuObject) => {
   return await client.createRichMenu(
     richMenuObject
@@ -45,13 +46,13 @@ const setRichMenuImage = async (richMenuId, path) => {
 }
 
 // デフォルトのリッチメニューを設定する
-const setRichMenuAlias = async (richMenuId, richMenuAliasId) => {
-  return await client.createRichMenuAlias(richMenuId, richMenuAliasId)
-}
-
-// デフォルトのリッチメニューを設定する
 const setDefaultRichMenu = async (richMenuId) => {
   return await client.setDefaultRichMenu(richMenuId)
+}
+
+// リッチメニューの alias の登録
+const setRichMenuAlias = async (richMenuId, richMenuAliasId) => {
+  return await client.createRichMenuAlias(richMenuId, richMenuAliasId)
 }
 
 const main = async () => {
