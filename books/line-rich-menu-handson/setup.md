@@ -1,10 +1,8 @@
 ---
-title: "準備"
+title: "LINE Botの準備"
 ---
 
 # ハンズオンの流れ
-今回はgo/nodejs/ruby/pythonでハンズオンをしますが、各言語で共通して次の流れで進めます。
-![](https://storage.googleapis.com/zenn-user-upload/ce69c12c40693fb194c92bff.png)
 
 # LINE Botの登録
 ## LINE Developerの登録(初回利用の方のみ)
