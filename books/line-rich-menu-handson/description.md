@@ -57,16 +57,32 @@ title: "方向性"
 - ペアケアの名前を出して良い
 - Diorいいよ
   - https://line.me/R/ti/p/@dior?from=page
-- footerからリンク飛ばせればいいよね
+  - footerからリンク飛ばせればいいよね
 
 ## TODO
-- [x] 各ページを作る
-- [ ] 事前インプット10
-- [ ] Line botの準備10
-- [x] 手を動かす5
-- [ ] デフォルトアクションについて 5
-- [x] 後解説 10
-- [ ] リッチメニューのデザインを自分で作ってみる
 
 - [ ] 後解説の + アルファについて解説
 - [ ] 後解説の + アルファのサンプルコード
+
+- [x] after-input.md
+- [x] before-input.md
+- [x] create-rich-menu.md
+- [x] handson.md
+- [x] how-to-use-rich-menu.md
+- [x] liff-vs-rich-menu.md
+- [x] setup.md
+
+
+- [ ] liff の方で、LINE Loginのセットアップをしないと
+
+- [x] Aliasスイッチのスピードが速くなった
+- アプリライクになったのが良い
+  - タブの数を増やせるのが良い
+- [x] figmaでボードを作っている
+- LIFFは導線が遠い
+  - リッチメニューの方が導線が違い
+- [x] Diorいいよ
+  - https://line.me/R/ti/p/@dior?from=page
+  - footerからリンク飛ばせればいいよね
+
+- [ ] liffについての説明をする

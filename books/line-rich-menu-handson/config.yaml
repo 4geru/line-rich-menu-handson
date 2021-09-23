@@ -6,10 +6,11 @@ price: 0
 # 本に含めるチャプターを順番に並べましょう
 chapters:
   - description
-  - 00-before-input
+  - before-input
   - how-to-use-rich-menu
+  - why-rich-menu
   - liff-vs-rich-menu
-  - 01-setup
-  - 02-handson
-  - 04-after-input
-  - 05-create-rich-menu
+  - setup
+  - handson
+  - after-input
+  - create-rich-menu
