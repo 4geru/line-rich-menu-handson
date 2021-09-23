@@ -2,14 +2,13 @@
 title: "リッチメニューAPIを動かす"
 ---
 
-リポジトリを clone してきます
+LINE 公式が公開している[サンプル](https://developers.line.biz/ja/docs/messaging-api/using-rich-menus/#switching-between-multiple-rich-menus)を試していきます。
+今回のハンズオンでは Ruby / Python / Node.js / Golang に対応しています。
+まずは、今回使うリポジトリを clone してきます。
 
 ```shell
 git clone git@github.com:4geru/line-rich-menu-handson.git
 ```
-
-今回のハンズオンでは Ruby / Python / Node.js / Golang に対応しています。
-お好きな環境をご利用ください。
 
 ### 必要パッケージのインストール
 
@@ -53,6 +52,8 @@ LINE Develpersの情報をもとに、 `LINE_CHANNEL_SECRET` と `CHANNEL_CHANNE
 | CHANNEL_CHANNEL_TOKEN | Messaging API設定 > チャネルアクセストークン |
 
 :::details Ruby
+`ruby/app.rb` を開いて、`LINE_CHANNEL_SECRET` と `CHANNEL_CHANNEL_TOKEN` を上書きします。
+
 ```ruby:app.rb
 def client
     @client ||= Line::Bot::Client.new { |config|
@@ -64,12 +65,15 @@ end
 :::
 
 :::details Python
+`python/main.py` を開いて、`CHANNEL_CHANNEL_TOKEN` を上書きします。
+
 ```python:main.py
 line_bot_api = LineBotApi('LINE_CHANNEL_TOKEN') # 上書きする
 ```
 :::
 
 :::details Node.js
+`javascript/index.js` を開いて、`LINE_CHANNEL_SECRET` と `CHANNEL_CHANNEL_TOKEN` を上書きします。
 ```javascript:index.js
 const config = {
   channelAccessToken: 'LINE_CHANNEL_TOKEN', // 上書きする
@@ -79,6 +83,8 @@ const config = {
 :::
 
 :::details Golang
+`go/main.go` を開いて、`LINE_CHANNEL_SECRET` と `CHANNEL_CHANNEL_TOKEN` を上書きします。
+
 ```go:main.go
 func main() {
 	bot, err := linebot.New(
@@ -88,9 +94,9 @@ func main() {
 ```
 :::
 
-### 実行する
+### コードの実行
 
-リッチメニューを登録します
+スクリプトを実行して、リッチメニューを登録します
 
 :::details Ruby
 ```shell

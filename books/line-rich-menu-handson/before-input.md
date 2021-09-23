@@ -6,17 +6,18 @@ title: "リッチメニューって何？"
 
 LINE 公式 bot の下に出てくるタッチできる部分です。
 公式botを調査したところ、60%以上(38/50)のbotでリッチメニューを利用しています。
-リッチメニューを使うことで、アプリのような表現が可能になりました。
+リッチメニューを使うことで、アプリのような表現が可能になります。
 
 ## リッチメニューの利用例
-普段の日常の中で、見たことありませんか？
+リッチメニューを活用しているbotはたくさんあります。
+小さいサイズ・大きいサイズと色々あります。
+
 | 吉野家 | ユニクロ | ローソン |
 | :---: | :---: | :---: |
-| クーポンを表示 | LINE会員証 | 遊び心 |
+| クーポンを表示 | 会員証 | 遊び心 |
 | ![](/images/books/line-rich-menu-handson/before-input/rich-yoshinoya.jpg) | ![](/images/books/line-rich-menu-handson/before-input/rich-uniqlo.jpg)| ![](/images/books/line-rich-menu-handson/before-input/rich-loson.jpg) |
 
 ## Diorの例
-
 ### リッチメニューについて
 
 リッチメニューAPIを利用しており切り替えできます。

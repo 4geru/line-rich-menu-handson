@@ -3,9 +3,9 @@ title: "コードの解説"
 ---
 # 解説
 ## リッチメニューを作成する
+リッチメニューオブジェクトの管理は、別のファイルでリッチメニューオブジェクトだけを返す関数を作っています。
 [APIドキュメント: リッチメニューを作成する](https://developers.line.biz/ja/reference/messaging-api/#create-rich-menu)
 [APIドキュメント: リッチメニューオブジェクト](https://developers.line.biz/ja/reference/messaging-api/#rich-menu-object)
-リッチメニューオブジェクトの管理は、別のファイルでリッチメニューオブジェクトだけを返す関数を作っています。
 
 :::details Ruby
 リッチメニューオブジェクトは `./ruby/rich_menu_object.rb` で定義しています。
@@ -75,8 +75,8 @@ func createRichMenu(bot *linebot.Client, richMenu linebot.RichMenu) string {
 :::
 
 ## リッチメニューに画像をアップロードする
-[APIドキュメント: リッチメニューの画像をアップロードする](https://developers.line.biz/ja/reference/messaging-api/#upload-rich-menu-image)
 画像は `./public/` 配下に `richmenu-a.png`, `richmenu-b.png` を準備しています。
+[APIドキュメント: リッチメニューの画像をアップロードする](https://developers.line.biz/ja/reference/messaging-api/#upload-rich-menu-image)
 
 :::details Ruby
 ```ruby:app.rb
@@ -116,8 +116,8 @@ func setRichMenuImage(bot *linebot.Client, richMenuId string, filePath string) {
 :::
 
 ## リッチメニューエイリアスを作成する
-[APIドキュメント: リッチメニューエイリアスを作成する](https://developers.line.biz/ja/reference/messaging-api/#create-rich-menu-alias)
 aliasの設定をすることで、今回新たに追加された `richmenuswitch` アクションを使うことができます。
+[APIドキュメント: リッチメニューエイリアスを作成する](https://developers.line.biz/ja/reference/messaging-api/#create-rich-menu-alias)
 
 :::details Ruby
 ```ruby:app.rb
@@ -157,8 +157,8 @@ func setRichMenuAlias(bot *linebot.Client, richMenuId string, richMenuAliasID st
 :::
 
 ## リッチメニューをデフォルトのリッチメニューにする
+全ユーザーに対して、デフォルトで表示されるリッチメニューの設定をします。
 [APIドキュメント: デフォルトのリッチメニューを設定する](https://developers.line.biz/ja/reference/messaging-api/#set-default-rich-menu)
-全ユーザーに対して、デフォルトで表示されるリッチメニューの設定をします
 
 :::details Ruby
 ```ruby:app.rb
@@ -192,9 +192,3 @@ func setDefaultRichMenu(bot *linebot.Client, richMenuId string) {
 }
 ```
 :::
-
-# +α
-## ユーザーとのリンク
-## ユーザーと紐づいていることの確認
-## ユーザーとのリンク解除
-

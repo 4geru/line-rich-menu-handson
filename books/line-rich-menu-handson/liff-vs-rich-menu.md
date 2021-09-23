@@ -2,19 +2,8 @@
 title: "LIFFとリッチメニューの違い"
 ---
 
-## LIFF(LINE Frontend Framework) vs リッチメニュー
-LIFFとリッチメニューと自由度・UIとしてどっちがいいんだっけ？みたいな話があると思います。
-
-| | LIFF | リッチメニュー |
-| :--- | :--- | :--- |
-| メッセージ送信 | ○ | ○ |
-| ユーザー情報 | ○ | ○ |
-| LINE URLスキーム が使える ※1| ○ | ○ |
-| UIの自由度 | ○ | △ |
-| LINE のトークが見える | △ | ○ |
-| 導線 | △ | ○
-
-※1 [LINE URLスキームでLINEの機能を使う](https://developers.line.biz/ja/docs/messaging-api/using-line-url-scheme)
+## LIFFについて
+TODO 3行で説明する
 
 ### LIFFのメリット
 - Webのフレームワークを使うことができる
@@ -30,3 +19,18 @@ LIFFとリッチメニューと自由度・UIとしてどっちがいいんだ�
   - LIFFの場合、ブラウザ部分に隠れてしまう
   - 例えば、複数人でゲームアプリを作成した場合に、同期的な処理をすることができる
 - botとのメッセージ画面にデフォルトで表示される
+  - 興味を引きやすい
+
+## LIFF(LINE Frontend Framework) vs リッチメニュー
+LIFFとリッチメニューと自由度・UIとしてどっちがいいんだっけ？みたいな話があると思います。
+
+| | LIFF | リッチメニュー |
+| :--- | :--- | :--- |
+| メッセージ送信 | ○ | ○ |
+| ユーザー情報 | ○ | ○ |
+| LINE URLスキーム が使える ※1| ○ | ○ |
+| UIの自由度 | ○ | △ |
+| LINE のトークが見える | △ | ○ |
+| アクションまでの導線 | △ | ○
+
+※1 [LINE URLスキームでLINEの機能を使う](https://developers.line.biz/ja/docs/messaging-api/using-line-url-scheme)

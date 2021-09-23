@@ -86,3 +86,5 @@ title: "方向性"
   - footerからリンク飛ばせればいいよね
 
 - [ ] liffについての説明をする
+- [ ] README.md の整理
+- [ ] overviewをまとめる
