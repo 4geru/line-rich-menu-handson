@@ -1,3 +1,7 @@
+---
+title: "おまけ：リッチメニューオブジェクトについて"
+---
+
 # selected
 デフォルトでリッチメニューを表示する場合はtrueです。それ以外はfalseです。
 
@@ -6,3 +10,7 @@
 
 # areas
 https://developers.line.biz/ja/reference/messaging-api/#action-objects
+
+# action
+
+TODO
