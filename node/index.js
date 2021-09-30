@@ -5,8 +5,8 @@ const { readFileSync } = require("fs");
 const {richMenuObjectA, richMenuObjectB} = require('./rich_menu_object.js');
 
 const config = {
+  channelSecret: 'LINE_CHANNEL_SECRET',      // 上書きする
   channelAccessToken: 'LINE_CHANNEL_TOKEN', // 上書きする
-  channelSecret: 'LINE_CHANNEL_SECRET'      // 上書きする
 };
 
 client = new line.Client(config);

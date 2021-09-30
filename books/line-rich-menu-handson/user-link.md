@@ -10,6 +10,38 @@ title: "おまけ：ユーザーリンク"
 
 [LINE Developers](https://developers.line.biz/) の botの詳細画面から `チャネル基本設定 > あなたのユーザーID` をメモします。
 
+## 前準備
+それぞれの環境で、ユーザーリンクをテストするスクリプトを実行します。
+今登録されているリッチメニューが表示されるので、メモします。
+各言語のディレクトリに user_link.xx というファイルがあります。
+ユーザーリンクについてはコメントアウトされています。
+コメントアウトを外して、挙動の確認をしてみましょう。
+
+:::details Ruby
+```shell
+bundle exec ruby user_link.rb
+```
+:::
+
+:::details Python
+```shell
+pipenv run python user_link.py
+```
+:::
+
+:::details Node.js
+```shell
+node user_link.js
+```
+:::
+
+:::details Golang
+```shell
+make test
+```
+:::
+
+
 ## ユーザーとのリンク/リンク解除
 [リッチメニューとユーザーをリンクする](https://developers.line.biz/ja/reference/messaging-api/#link-rich-menu-to-user)
 [リッチメニューとユーザーのリンクを解除する](https://developers.line.biz/ja/reference/messaging-api/#unlink-rich-menu-from-user)

@@ -3,7 +3,7 @@ title: "おまけ：リッチメニューの画像を変える"
 ---
 
 ## スライドでリッチメニュー
-[Google Slide](https://docs.google.com/presentation/u/1/d/1KnjntPILlP8UCIsPqRfCIAVVe_lNb440-j0WFt8F_38/copy) のコピーを作成します。
+[Google Slide](https://docs.google.com/presentation/d/1dvSNUI0-AcVJm3vlwXIifTQw9fiqvqL9eYo3_Og6djs/copy) のコピーを作成します。
 [Icons8](https://icons8.com/icons/new) や [いらすとや](https://www.irasutoya.com/) から好きな画像を使って、カスタマイズします。
 
 ## ダウンロードをする

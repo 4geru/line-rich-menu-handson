@@ -61,8 +61,8 @@ title: "方向性"
 
 ## TODO
 
-- [ ] 後解説の + アルファについて解説
-- [ ] 後解説の + アルファのサンプルコード
+- [x] 後解説の + アルファについて解説
+- [x] 後解説の + アルファのサンプルコード
 
 - [x] after-input.md
 - [x] before-input.md
@@ -85,6 +85,7 @@ title: "方向性"
   - https://line.me/R/ti/p/@dior?from=page
   - footerからリンク飛ばせればいいよね
 
-- [ ] liffについての説明をする
-- [ ] README.md の整理
-- [ ] overviewをまとめる
+- [x] liffについての説明をする
+- [x] README.md の整理
+- [ ] action の リンクを変える
+- [x] おまけの実行スクリプトを追加する

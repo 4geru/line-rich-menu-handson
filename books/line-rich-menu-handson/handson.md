@@ -76,8 +76,8 @@ line_bot_api = LineBotApi('LINE_CHANNEL_TOKEN') # 上書きする
 `javascript/index.js` を開いて、`LINE_CHANNEL_SECRET` と `CHANNEL_CHANNEL_TOKEN` を上書きします。
 ```javascript:index.js
 const config = {
+  channelSecret: 'LINE_CHANNEL_SECRET',      // 上書きする
   channelAccessToken: 'LINE_CHANNEL_TOKEN', // 上書きする
-  channelSecret: 'LINE_CHANNEL_SECRET'      // 上書きする
 };
 ```
 :::
@@ -118,6 +118,6 @@ node index.js
 
 :::details Golang
 ```shell
-go run main.go rich_menu_object.go
+make dev
 ```
 :::
