@@ -1,6 +1,18 @@
 title: "LIFFもいいけどリッチメニューを触ってみよう！"
-summary: ""
-topics: []
+summary: |-
+  誰でも LINE リッチメニューについて使いこなせるようになります。
+
+  ・ LIFF と リッチメニュー の違い
+  ・ リッチメニューの画像の作り方
+  ・ リッチメニューの登録方法
+  ・ リッチメニューのユーザーとの紐付け
+
+  についてまとまっています。
+
+  【ハンズオン】LIFFもいいけどリッチメニューを触ってみよう！ で利用するハンズオン資料です。
+  イベントページ： https://linedevelopercommunity.connpass.com/event/223972/
+  github： https://github.com/4geru/line-rich-menu-handson
+topics: ['LINE', 'リッチメニュー', '入門']
 published: false
 price: 0
 # 本に含めるチャプターを順番に並べましょう
@@ -12,5 +24,6 @@ chapters:
   - setup
   - handson
   - after-input
+  - rich-menu-option
   - create-rich-menu
   - user-link
