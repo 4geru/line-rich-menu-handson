@@ -121,3 +121,10 @@ node index.js
 make dev
 ```
 :::
+
+## ☕️ 🍰 ここまでできたらひと休憩 ☕️ 🍰
+ここまでの感想をツイートしてみましょう！
+
+| richmenu-a | richmenu-b |
+| :---: | :---: |
+| ![](/images/books/line-rich-menu-handson/handson/richmenu-a.png) | ![](/images/books/line-rich-menu-handson/handson/richmenu-b.png)
