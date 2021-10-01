@@ -65,7 +65,7 @@ const main = async () => {
   // 5. リッチメニューBに画像をアップロードする
   await setRichMenuImage(richMenuBId, '../public/richmenu-b.png')
   // 6. リッチメニューAをデフォルトのリッチメニューにする
-  await setDefaultRichMenu(richMenuBId)
+  await setDefaultRichMenu(richMenuAId)
   // 7. リッチメニューエイリアスAを作成する
   await setRichMenuAlias(richMenuAId, 'richmenu-alias-a')
   // 8. リッチメニューエイリアスBを作成する
